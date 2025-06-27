@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Top Up Game by chamim shop</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #ffdd57;
+      text-shadow: 0 0 10px #ffdd57;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input[type="text"], input[type="number"] {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+    }
+
+    select {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+    }
+
+    input::placeholder {
+      color: #ddd;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffdd57;
+      color: #4a3c00;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ffdd57;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #f6c600;
+      box-shadow: 0 0 20px #f6c600;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #ffd;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Top Up Game by chamimshop</h1>
+    <form id="topupForm">
+      <label for="game">Pilih Game</label>
+      <select id="game" name="game" required>
+        <option value="" disabled selected>-- Pilih Game --</option>
+        <option value="mobile-legends">Mobile Legends</option>
+        <option value="free-fire">Free Fire</option>
+        <option value="pubg-mobile">PUBG Mobile</option>
+        <option value="valorant">Valorant</option>
+        <option value="clash of clans">clash of clans</option>
+      </select>
+
+      <label for="playerId">ID Pemain</label>
+      <input type="text" id="playerId" name="playerId" placeholder="Masukkan ID pemain" required />
+
+      <label for="amount">Jumlah Top Up (Diamond/UC/gems)</label>
+      <input type="number" id="amount" name="amount" min="1" placeholder="Masukkan jumlah" required />
+
+      <button type="submit">Top Up Sekarang</button>
+    </form>
+    <p class="note">Pastikan data yang Anda masukkan sudah benar sebelum melakukan top up.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('topupForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const game = form.game.value;
+      const playerId = form.playerId.value.trim();
+      const amount = form.amount.value;
+
+      alert(`
