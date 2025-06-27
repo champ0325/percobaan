@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Arena Mini Battle</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    #gameArea {
+      width: 100vw;
+      height: 100vh;
+      background: url('https://i.imgur.com/oD0y1H1.jpg') center/cover no-repeat;
+      position: relative;
+    }
+    #player {
+      width: 40px;
+      height: 40px;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameArea">
+    <div id="player"></div>
+  </div>
+
+  <script>
+    const player = document.getElementById("player");
+    let posX = window.innerWidth / 2;
+    let posY = window.innerHeight / 2;
+
+    document.addEventListener("keydown", function(e) {
+      const step = 10;
+      if (e.key === "ArrowUp") posY -= step;
+      if (e.key === "ArrowDown") posY += step;
+      if (e.key === "ArrowLeft") posX -= step;
+      if (e.key === "ArrowRight") posX += step;
+
+      player.style.left = posX + "px";
+      player.style.top = posY + "px";
+    });
+  </script>
+</body>
+</html>
